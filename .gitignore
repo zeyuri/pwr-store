@@ -24,3 +24,8 @@ build
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+.turbo
+**/dist
+**/node_modules
+/out
