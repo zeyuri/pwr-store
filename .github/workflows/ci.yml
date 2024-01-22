@@ -1,0 +1,52 @@
+name: CI
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8.14.1
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20.11.0
+          cache: pnpm
+
+      - name: Audit dependencies
+        run: pnpm audit --audit-level critical
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Run tests
+        run: pnpm test
+
+      - name: Check affected projects
+        id: check-affected
+        run: |
+          affected_projects=$(pnpm turbo build --dry=json | jq -r '.packages[]')
+          echo "affected_projects=$affected_projects" >> $GITHUB_OUTPUT
+
+      - name: Echo affected projects
+        run: echo ${{ steps.check-affected.outputs.affected_projects }}
+
+      - name: Deploy Server
+        if: ${{ contains(steps.check-affected.outputs.affected_projects, 'server') }}
+        uses: bervProject/railway-deploy@main
+        env:
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+        with:
+          service: "server"
+          detach: true
