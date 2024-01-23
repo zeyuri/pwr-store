@@ -9,9 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
-          fetch-depth: 2
+          fetch-depth: 0
 
       - name: Setup PNPM
         uses: pnpm/action-setup@v2
@@ -19,7 +19,7 @@ jobs:
           version: 8.14.1
 
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 20.11.0
           cache: pnpm
@@ -33,17 +33,30 @@ jobs:
       - name: Run tests
         run: pnpm test
 
-      - name: Check affected projects
-        id: check-affected
-        run: |
-          affected_projects=$(pnpm turbo build --dry=json | jq -r '.packages[]')
-          echo "affected_projects=$affected_projects" >> $GITHUB_OUTPUT
+      - name: Storefront changed in last commit?
+        id: changed-storefront
+        uses: Trampoline-CX/action-turbo-changed@v1
+        with:
+          workspace: storefront
+          from: HEAD^1
 
-      - name: Echo affected projects
-        run: echo ${{ steps.check-affected.outputs.affected_projects }}
+      - name: Validate Action Output
+        if: steps.changed-storefront.outputs.changed == 'true'
+        run: echo 'storefront changed!'
+
+      - name: Server changed in last commit?
+        id: changed-server
+        uses: Trampoline-CX/action-turbo-changed@v1
+        with:
+          workspace: server
+          from: HEAD^1
+
+      - name: Validate Action Output
+        if: steps.changed-server.outputs.changed == 'true'
+        run: echo 'server changed!'
 
       - name: Deploy Server
-        if: ${{ contains(steps.check-affected.outputs.affected_projects, 'server') }}
+        if: steps.changed-server.outputs.changed == 'true'
         uses: bervProject/railway-deploy@main
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}

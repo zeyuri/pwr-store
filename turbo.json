@@ -1,9 +1,6 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
-    "build": {
-      "outputs": ["dist/**"]
-    },
     "type-check": {},
     "dev": {
       "cache": false,
@@ -11,6 +8,9 @@
     },
     "test": {
       "outputs": ["coverage/**"],
+      "dependsOn": []
+    },
+    "lint": {
       "dependsOn": []
     }
   }
