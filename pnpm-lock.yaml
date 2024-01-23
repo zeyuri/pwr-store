@@ -151,8 +151,8 @@ importers:
         specifier: ^0.7.1
         version: 0.7.1
       '@paypal/paypal-js':
-        specifier: ^5.0.6
-        version: 5.1.6
+        specifier: ^8.0.0
+        version: 8.0.0
       '@paypal/react-paypal-js':
         specifier: ^7.8.1
         version: 7.8.3(react-dom@18.2.0)(react@18.2.0)
@@ -4135,6 +4135,12 @@ packages:
 
   /@paypal/paypal-js@5.1.6:
     resolution: {integrity: sha512-1upF06pv0AUtTftRVSra44p8ibqGa3ruKLArvdhpZla25zcrND7R+nDUIMrJ0iteVYZowhujZStFs6NoruExfg==}
+    dependencies:
+      promise-polyfill: 8.3.0
+    dev: false
+
+  /@paypal/paypal-js@8.0.0:
+    resolution: {integrity: sha512-wiABljZw5IbvuWkuspmRA/xN9T78zXbEfBzz6Ea94Nxg5hoxs1l9u4rzjO30IEglmIFH3+fLsGla+PfnUzvFSw==}
     dependencies:
       promise-polyfill: 8.3.0
     dev: false
