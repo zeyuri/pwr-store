@@ -124,7 +124,7 @@ importers:
   apps/storefront:
     dependencies:
       '@headlessui/react':
-        specifier: ^1.6.1
+        specifier: ^1.7.18
         version: 1.7.18(react-dom@18.2.0)(react@18.2.0)
       '@hookform/error-message':
         specifier: ^2.0.0
@@ -145,7 +145,7 @@ importers:
         specifier: ^0.3.4
         version: 0.3.7(pg@8.11.3)
       '@medusajs/ui':
-        specifier: ^2.2.0
+        specifier: ^2.2.4
         version: 2.2.4(@types/react-dom@18.2.18)(@types/react@18.2.48)(react-dom@18.2.0)(react@18.2.0)(typescript@5.3.3)
       '@meilisearch/instant-meilisearch':
         specifier: ^0.7.1
@@ -14599,6 +14599,7 @@ packages:
       prop-types: 15.8.1
       react: 15.7.0
     dev: false
+    bundledDependencies: false
 
   /react-dom@18.2.0(react@18.2.0):
     resolution: {integrity: sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==}
@@ -14938,6 +14939,7 @@ packages:
       object-assign: 4.1.1
       prop-types: 15.8.1
     dev: false
+    bundledDependencies: false
 
   /react@18.2.0:
     resolution: {integrity: sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==}
