@@ -7,7 +7,7 @@ import { useEffect, useState } from "react"
 import { useFormState } from "react-dom"
 
 import useToggleState from "@lib/hooks/use-toggle-state"
-import CountrySelect from "@modules/checkout/components/country-select"
+
 import Input from "@modules/common/components/input"
 import Modal from "@modules/common/components/modal"
 import { SubmitButton } from "@modules/checkout/components/submit-button"
@@ -105,12 +105,6 @@ const AddAddress = ({ region }: { region: Region }) => {
                 label="Province / State"
                 name="province"
                 autoComplete="address-level1"
-              />
-              <CountrySelect
-                region={region}
-                name="country_code"
-                required
-                autoComplete="country"
               />
               <Input label="Phone" name="phone" autoComplete="phone" />
             </div>

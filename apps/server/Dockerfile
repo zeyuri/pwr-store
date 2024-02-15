@@ -84,16 +84,6 @@ EXPOSE ${PORT}
 
 ENTRYPOINT ["pnpm", "run", "batata"]
 
-# Final image
-# FROM base AS runner
-
-# RUN addgroup --system --gid 1001 nodejs
-# RUN adduser --system --uid 1001 nodejs
-# USER nodejs
-
-# WORKDIR /app
-# COPY --from=builder --chown=nodejs:nodejs /app .
-# WORKDIR /app/apps/server
 
 
 
