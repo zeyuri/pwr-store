@@ -157,8 +157,8 @@ importers:
         specifier: ^7.8.1
         version: 7.8.3(react-dom@18.2.0)(react@18.2.0)
       '@stripe/react-stripe-js':
-        specifier: ^1.7.2
-        version: 1.16.5(@stripe/stripe-js@1.54.2)(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^2.5.1
+        version: 2.5.1(@stripe/stripe-js@1.54.2)(react-dom@18.2.0)(react@18.2.0)
       '@stripe/stripe-js':
         specifier: ^1.29.0
         version: 1.54.2
@@ -6652,10 +6652,10 @@ packages:
       '@stdlib/utils-global': 0.0.7
     dev: false
 
-  /@stripe/react-stripe-js@1.16.5(@stripe/stripe-js@1.54.2)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-lVPW3IfwdacyS22pP+nBB6/GNFRRhT/4jfgAK6T2guQmtzPwJV1DogiGGaBNhiKtSY18+yS8KlHSu+PvZNclvQ==}
+  /@stripe/react-stripe-js@2.5.1(@stripe/stripe-js@1.54.2)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-95BwDhOkl1TwIn5sldWW35GYt6wx+uYuwGjebaMOpOdHGyBKcDnBhTjIww+bUdmA2oCmpUqKnoB4OZJuqK8tJA==}
     peerDependencies:
-      '@stripe/stripe-js': ^1.44.1
+      '@stripe/stripe-js': ^1.44.1 || ^2.0.0 || ^3.0.0
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
