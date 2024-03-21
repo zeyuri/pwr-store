@@ -154,8 +154,8 @@ importers:
         specifier: ^5.0.6
         version: 5.1.6
       '@paypal/react-paypal-js':
-        specifier: ^7.8.1
-        version: 7.8.3(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^8.2.0
+        version: 8.2.0(react-dom@18.2.0)(react@18.2.0)
       '@stripe/react-stripe-js':
         specifier: ^1.7.2
         version: 1.16.5(@stripe/stripe-js@1.54.2)(react-dom@18.2.0)(react@18.2.0)
@@ -4139,13 +4139,19 @@ packages:
       promise-polyfill: 8.3.0
     dev: false
 
-  /@paypal/react-paypal-js@7.8.3(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-7sD5JFA0IH9kysyGFv5DTmtPn54vLWZ0DLhdjUvsjqZnoEs11mJJJlTsTA7MkIO3jBAJOWlfoA4wLYzmy68C4g==}
-    peerDependencies:
-      react: '>=16.3.0'
-      react-dom: '>=16.3.0'
+  /@paypal/paypal-js@8.0.4:
+    resolution: {integrity: sha512-91g5fhRBHGEBoikDzQT6uBn3PzlJQ75g0c3MvqVJqN0XRm5kHa9wz+6+Uaq8QQuxRzz5C2x55Zg057CW6EuwpQ==}
     dependencies:
-      '@paypal/paypal-js': 5.1.6
+      promise-polyfill: 8.3.0
+    dev: false
+
+  /@paypal/react-paypal-js@8.2.0(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-SworUfu0BNNcqoh0O53Ke4MFpx2m3qJRu3hayXvlluEEXJpKqGSV5aaSGFhbsZqi8hnbsx/hZR7BQbmqsggiGQ==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@paypal/paypal-js': 8.0.4
       '@paypal/sdk-constants': 1.0.136
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
